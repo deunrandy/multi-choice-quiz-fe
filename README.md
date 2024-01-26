@@ -1,6 +1,10 @@
-# MultiChoiceQuizFe
+# Cambridge Coding Exam
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
+
+This project written in Angular 16 is a modern, interactive, and user-friendly multiple-choice quiz application built using the latest Angular framework. This application is designed to provide an engaging platform for testing your english skill. Whether you're a student preparing for exams, an educator creating assessments, or just someone who enjoys testing their knowledge, this is the perfect tool for you.
+
+Within this project is a home page as landing page and a quiz page with 10 multiple choice questions. At the end of the quiz, the system will provide recommendation regarding the courses you could take according to your result.
 
 ## Development server
 

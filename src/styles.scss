@@ -1,7 +1,6 @@
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
-@use '@angular/material' as mat;
+@use "@angular/material" as mat;
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -12,21 +11,101 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$multi-choice-quiz-fe-primary: mat.define-palette(mat.$indigo-palette);
-$multi-choice-quiz-fe-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+// $multi-choice-quiz-fe-primary: mat.define-palette(mat.$indigo-palette);
+
+$custom-palette-primary: (
+  50: #e1f7f6,
+  100: #b3ece9,
+  200: #80dfdb,
+  300: #4dd2cd,
+  400: #27c8c2,
+  500: #01beb7,
+  600: #01b8b0,
+  700: #01afa7,
+  800: #01a79f,
+  900: #009990,
+  A100: #c4fffb,
+  A200: #91fff7,
+  A400: #5efff4,
+  A700: #45fff2,
+  contrast: (
+    50: #000,
+    100: #000,
+    200: #000,
+    300: #000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #ffffff,
+    A200: #ffffff,
+    A400: #ffffff,
+    A700: #ffffff,
+  ),
+);
+
+$custom-palette-accent: (
+  50: #e2e2e2,
+  100: #b6b6b8,
+  200: #868688,
+  300: #555558,
+  400: #303035,
+  500: #0c0c11,
+  600: #0a0a0f,
+  700: #08080c,
+  800: #06060a,
+  900: #030305,
+  A100: #4d4dff,
+  A200: #1a1aff,
+  A400: #0000e6,
+  A700: #0000cd,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #ffffff,
+    A200: #ffffff,
+    A400: #ffffff,
+    A700: #ffffff,
+  ),
+);
+
+$multi-choice-quiz-fe-primary: mat.define-palette(
+  $custom-palette-primary,
+  500,
+  300,
+  900
+);
+$multi-choice-quiz-fe-accent: mat.define-palette(
+  $custom-palette-accent,
+  500,
+  300,
+  900
+);
 
 // The warn palette is optional (defaults to red).
 $multi-choice-quiz-fe-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$multi-choice-quiz-fe-theme: mat.define-light-theme((
-  color: (
-    primary: $multi-choice-quiz-fe-primary,
-    accent: $multi-choice-quiz-fe-accent,
-    warn: $multi-choice-quiz-fe-warn,
-  )
-));
+$multi-choice-quiz-fe-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $multi-choice-quiz-fe-primary,
+      accent: $multi-choice-quiz-fe-accent,
+      warn: $multi-choice-quiz-fe-warn,
+    ),
+  ),
+);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
@@ -34,6 +113,18 @@ $multi-choice-quiz-fe-theme: mat.define-light-theme((
 @include mat.all-component-themes($multi-choice-quiz-fe-theme);
 
 /* You can add global styles to this file, and also import other style files */
+@import './assets/styles/material-global.scss';
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+:root {
+  --primary: #01beb7;
+  --accent: #0c0c11;
+
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

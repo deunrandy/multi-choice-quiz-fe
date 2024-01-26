@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="content">
+    <div class="group">
+      <h1>Getting ready on your Cambridge English Exam journey?</h1>
+      <p>Meet your ultimate study companion.</p>
+      <div class="bullets">
+        <div class="bullet">
+          <div class="check"><mat-icon svgIcon="check"></mat-icon></div>
+          <span>
+
+            Dive into an exciting quiz-app prototype
+          </span>
+        </div>
+        <div class="bullet">
+          <div class="check"><mat-icon svgIcon="check"></mat-icon></div>
+          <span>
+            Receive immediate feedback on your quiz results and get personalized
+            learning course recommendations that fits you perfectly.
+          </span>
+        </div>
+        <div class="bullet">
+          <div class="check"><mat-icon svgIcon="check"></mat-icon></div>
+          <span>
+
+            Let's ace that Cambridge English Exam together!
+          </span>
+        </div>
+      </div>
+      <button mat-flat-button color="primary" (click)="startQuiz()" >Start Quiz</button>
+    </div>
+    <img src="assets/images/header_img.svg" alt="header image" />
+  </div>
+  <div class="overview">
+    <h4>Overview of Available Courses by Level:</h4>
+    <div class="courses">
+      <div class="course" *ngFor="let course of COURSES">
+        <h2>{{course.code}}</h2>
+        <p>{{course.desc}}</p>
+      </div>
+    </div>
+  </div>
+</div>

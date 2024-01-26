@@ -1,0 +1,62 @@
+<div class="container" *ngIf="!showResult">
+  <h1>English Level Quiz</h1>
+  <h3 *ngIf="!isValid">
+    There are questions that do not have answers. Please answer all questions
+    before submitting.
+  </h3>
+  <p>
+    Question <span>{{ currIdx + 1 }}</span> of
+    <span>{{ QUESTIONS.length }}</span>
+  </p>
+  <p>{{ QUESTIONS[currIdx].question }}</p>
+  <mat-radio-group class="options" [(ngModel)]="QUESTIONS[currIdx].selected">
+    <mat-radio-button
+      class="option"
+      *ngFor="let option of QUESTIONS[currIdx].options"
+      [value]="option.value"
+      color="primary"
+      (click)="QUESTIONS[currIdx].selected = option.value"
+    >
+      {{ option.name }}
+    </mat-radio-button>
+  </mat-radio-group>
+  <div class="actions">
+    <button
+      mat-stroked-button
+      color="primary"
+      (click)="move(-1)"
+      *ngIf="currIdx > 0"
+    >
+      Back
+    </button>
+    <button
+      mat-flat-button
+      color="primary"
+      [disabled]="!QUESTIONS[currIdx].selected"
+      (click)="currIdx === QUESTIONS.length - 1 ? submit() : move(1)"
+    >
+      {{ currIdx === QUESTIONS.length - 1 ? "Submit" : "Next Question" }}
+    </button>
+  </div>
+</div>
+
+<div class="result" *ngIf="showResult">
+  <div class="group">
+    <h3 [routerLink]="['/', ROUTES.HOME]"><mat-icon svgIcon="arrow"></mat-icon> Back to the Home Screen</h3>
+    <h1>Overall Score</h1>
+    <h1 class="score">{{ score * 10 }}/100</h1>
+    <button mat-flat-button color="primary" (click)="initializeQuestions()">
+      Retake the Exam
+    </button>
+    <div class="reco">
+      <p>Recommended course(s) for you to take:</p>
+      <div class="recommendations">
+        <div class="recommendation" *ngFor="let course of recommendations">
+          <h2>{{ course.code }}</h2>
+          <p>{{ course.desc }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <img src="assets/images/result_img.svg" alt="result image" />
+</div>

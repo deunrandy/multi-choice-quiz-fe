@@ -1,0 +1,92 @@
+:host ::ng-deep {
+  .container {
+    padding: 30px 50px;
+    p {
+      font-weight: 400;
+      span {
+        font-weight: 900;
+      }
+    }
+    h3 {
+      color: red;
+    }
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      .option {
+        display: flex;
+        width: calc(100% - 40px);
+        padding: 20px;
+        border: 1px solid #c0ced7;
+        border-radius: 5px;
+        &:hover,
+        &.mat-mdc-radio-checked {
+          border: 2px solid var(--primary);
+        }
+      }
+    }
+    .actions {
+      margin-top: 20px;
+      justify-content: flex-end;
+      display: flex;
+      gap: 10px;
+      button {
+        width: 100%;
+        max-width: 180px;
+      }
+    }
+  }
+  .result {
+    padding: 30px 50px;
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    gap: 20px;
+    align-items: center;
+    .group {
+      h3,
+      .score {
+        color: var(--primary);
+      }
+      h3 {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+      .reco {
+        .recommendations {
+          display: grid;
+          grid-template-columns: auto;
+          gap: 10px;
+          .recommendation {
+            background-color: #eaf7ff;
+            height: 170px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            p {
+              font-size: 16px;
+            }
+            h2,
+            p {
+              font-weight: bold;
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+    img {
+      width: calc(100% - 20px);
+    }
+  }
+  @media (max-width: 460px) {
+    .result {
+      grid-template-columns: unset;
+      img {
+        display: none;
+      }
+    }
+  }
+}

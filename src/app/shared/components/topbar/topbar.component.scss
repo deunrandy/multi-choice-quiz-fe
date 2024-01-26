@@ -1,0 +1,18 @@
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 18px 35px;
+  background-color: var(--primary);
+  .routes {
+    display: flex;
+    gap: 10px;
+    .route {
+      &:hover {
+        cursor: pointer;
+      }
+      &.active {
+        font-weight: 900;
+      }
+    }
+  }
+}
